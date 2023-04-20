@@ -1,7 +1,7 @@
 
 function getComputerChoice(max) {
     return Math.floor(Math.random() * max);
-    }
+}
     
 let playerScore = 0;
 let computerScore = 0;
@@ -116,7 +116,8 @@ function game() {
     }
 
     else if (computerScore > playerScore) {
-        console.log("You've been bested by the computer! Better luck next time...")
+        console.log("You've been bested by the computer!" 
+                + " Better luck next time...")
 
     }
 
@@ -124,7 +125,7 @@ function game() {
 
         console.log("You drew with the computer! Will you win next time?")
     }
-    }
+}
 
     
 console.log(game());
