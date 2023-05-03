@@ -7,17 +7,20 @@ let playerScore = 0;
 let computerScore = 0;
 
 
+
 function playMatch(matchChoice, computerChoice) {
 
     if (matchChoice == "rock" && computerChoice === 0) {
 
         console.log("You both picked Rock - it's a draw!"); 
+        results.textContent = 'You both picked Rock - it\'s a draw!';
 
     }
 
     else if (matchChoice == "rock" && computerChoice === 1) {
         computerScore = computerScore + 1;
         console.log("You lose! Paper beats Rock");
+        results.textContent = 'You lose! Paper beats Rock';
 
 
     }
@@ -25,6 +28,7 @@ function playMatch(matchChoice, computerChoice) {
     else if (matchChoice == "rock" && computerChoice === 2) {
         playerScore = playerScore + 1;
         console.log("You win! Rock beats scissors");
+        results.textContent = 'You win! Rock beats scissors';
 
 
     }
@@ -33,18 +37,21 @@ function playMatch(matchChoice, computerChoice) {
     else if (matchChoice == "paper" && computerChoice === 0) {
         playerScore = playerScore + 1; 
         console.log("You win! Paper beats rock");
+        results.textContent = 'You win! Paper beats rock';
 
     }
 
     else if (matchChoice == "paper" && computerChoice === 1) {
 
         console.log("You both picked paper - it's a draw!");
+        results.textContent = 'You both picked paper - it\'s a draw!';
 
     }
 
     else if (matchChoice == "paper" && computerChoice === 2) {
         computerScore = computerScore + 1;
         console.log("You lose! scissors beats paper");
+        results.textContent = 'You lose! scissors beats paper';
 
 
     }
@@ -52,6 +59,7 @@ function playMatch(matchChoice, computerChoice) {
     else if (matchChoice == "scissors" && computerChoice === 0) {
         computerScore = computerScore + 1; 
         console.log("You lose! Rock beats scissors");
+        results.textContent = 'You lose! Rock beats scissors';
 
 
     }
@@ -59,6 +67,7 @@ function playMatch(matchChoice, computerChoice) {
     else if (matchChoice == "scissors" && computerChoice === 1) {
         playerScore = playerScore + 1; 
         console.log("You win! Scissors beats paper");
+        results.textContent = 'You win! Scissors beats paper';
 
 
     }
@@ -66,15 +75,19 @@ function playMatch(matchChoice, computerChoice) {
     else if (matchChoice == "scissors" && computerChoice === 2) {
 
         console.log("You both picked scissors - it's a draw!");
+        results.textContent = 'You both picked scissors - it\'s a draw!';
 
     }
 
     else {
         console.log("Something strange happened...");
+        results.textContent = 'Hm... Something went wrong.';
 
     }
 
 }
+
+
 
 
 const rock = document.querySelector('#rock');
@@ -100,6 +113,9 @@ scissors.addEventListener('click', function(e) {
     console.log("scissors");
     playMatch(matchChoice, computerChoice)
 });
+
+const results = document.querySelector('#results');
+
 
 
 
