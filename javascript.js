@@ -7,7 +7,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 
-function match(matchChoice, computerChoice) {
+function playMatch(matchChoice, computerChoice) {
 
     if (matchChoice == "rock" && computerChoice === 0) {
 
@@ -77,56 +77,91 @@ function match(matchChoice, computerChoice) {
 }
 
 
-function game() {
-    
-    let matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
-    let matchChoice = matchPrompt.toLowerCase();
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', function(e) {
     let computerChoice = getComputerChoice(3);
+    matchChoice = "rock";
+    console.log("rock");
+    playMatch(matchChoice, computerChoice)
+});
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', function(e) {
+    let computerChoice = getComputerChoice(3);
+    matchChoice = "paper";
+    console.log("paper");
+    playMatch(matchChoice, computerChoice)
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', function(e) {
+    let computerChoice = getComputerChoice(3);
+    matchChoice = "scissors";
+    console.log("scissors");
+    playMatch(matchChoice, computerChoice)
+});
+
+
+
+// rock.addEventListener('click', () => {
+//   playMatch("Rock",getComputerChoice(3));
+// });
+
+
+
+
+
+
+// function game() {
     
-    console.log(match(matchChoice, computerChoice));
-
-    matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
-    matchChoice = matchPrompt.toLowerCase();
-    computerChoice = getComputerChoice(3);   
-
-    console.log(match(matchChoice, computerChoice));
-
-    matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
-    matchChoice = matchPrompt.toLowerCase();
-    computerChoice = getComputerChoice(3);
+//     let matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
+//     let matchChoice = matchPrompt.toLowerCase();
+//     let computerChoice = getComputerChoice(3);
     
-    console.log(match(matchChoice, computerChoice));
+//     console.log(playMatch(matchChoice, computerChoice));
 
-    matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
-    matchChoice = matchPrompt.toLowerCase();
-    computerChoice = getComputerChoice(3); 
+//     matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
+//     matchChoice = matchPrompt.toLowerCase();
+//     computerChoice = getComputerChoice(3);   
 
-    console.log(match(matchChoice, computerChoice));
+//     console.log(playMatch(matchChoice, computerChoice));
 
-    matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
-    matchChoice = matchPrompt.toLowerCase();
-    computerChoice = getComputerChoice(3);
+//     matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
+//     matchChoice = matchPrompt.toLowerCase();
+//     computerChoice = getComputerChoice(3);
+    
+//     console.log(playMatch(matchChoice, computerChoice));
+
+//     matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
+//     matchChoice = matchPrompt.toLowerCase();
+//     computerChoice = getComputerChoice(3); 
+
+//     console.log(playMatch(matchChoice, computerChoice));
+
+//     matchPrompt = prompt("Do you pick Rock, Paper or Scissors? ");
+//     matchChoice = matchPrompt.toLowerCase();
+//     computerChoice = getComputerChoice(3);
    
-    console.log(match(matchChoice, computerChoice));
+//     console.log(playMatch(matchChoice, computerChoice));
     
-    if (playerScore > computerScore){
+//     if (playerScore > computerScore){
 
-        console.log("Congratulations! You beat the computer!");
+//         console.log("Congratulations! You beat the computer!");
 
-    }
+//     }
 
-    else if (computerScore > playerScore) {
-        console.log("You've been bested by the computer!" 
-                + " Better luck next time...")
+//     else if (computerScore > playerScore) {
+//         console.log("You've been bested by the computer!" 
+//                 + " Better luck next time...")
 
-    }
+//     }
 
-    else {
+//     else {
 
-        console.log("You drew with the computer! Will you win next time?")
-    }
-}
+//         console.log("You drew with the computer! Will you win next time?")
+//     }
+// }
 
     
-console.log(game());
+// console.log(game());
 
