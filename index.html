@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="javascript.js" defer></script>
     <title>Rock, Paper Scissors!</title>
 </head>
 <body>
     <h1>Play Rock, Paper, Scissors:</h1>
-    <button id="rock" class="btn">Rock</button>
-    <button id="paper" class="btn">Paper</button>
-    <button id="scissors" class="btn">Scissors</button>
+    <div id="btns">
+        <button id="rock" class="btn"><img src="images/rock.png" 
+            alt="rock"></button>
+        <button id="paper" class="btn"><img src="images/paper.png" 
+            alt="paper"></button>
+        <button id="scissors" class="btn"><img src="images/scissors.png" 
+            alt="scissors"></button>
+    </div>
     <div id="results"></div>
         <p id="score"></p>
-    <div id ="winner">The winner is the first to reach five points.</div>
+    <div id ="winner"><p id="winnerText">The winner is the first to reach five points.</div></div>
 </body>
 </html>
