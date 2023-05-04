@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+    color: rgb(120, 120, 152);
+}
+
+#btns {
+    margin-bottom: 5px;
+}
+
+.btn {
+    background: transparent;
+    border: solid 5px;
+    border-color: rgb(183, 183, 230);
+    margin: 2px;
+    margin-top: 7px;
+}
+
+#winner {
+    font-weight: 700;
+}
