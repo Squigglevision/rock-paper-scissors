@@ -22,11 +22,11 @@ function playMatch(matchChoice, computerChoice) {
 
     else if (matchChoice == "rock" && computerChoice === 1) {
         computerScore = computerScore + 1;
-        console.log("You lose! Paper beats Rock");
-        results.textContent = 'Result: You lose! Paper beats Rock';
+        console.log("You lose this round! Paper beats Rock");
+        results.textContent = 'Result: You lose this round! Paper beats Rock';
         score.textContent = 
             `Score | Player: ${playerScore} 
-            Computer: ${computerScore}`;
+            Computer: ${computerScore}`;win
         declareWinner();
 
 
@@ -34,8 +34,8 @@ function playMatch(matchChoice, computerChoice) {
 
     else if (matchChoice == "rock" && computerChoice === 2) {
         playerScore = playerScore + 1;
-        console.log("You win! Rock beats scissors");
-        results.textContent = 'Result: You win! Rock beats scissors';
+        console.log("You min this round! Rock beats scissors");
+        results.textContent = 'Result: You win this round! Rock beats scissors';
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
@@ -46,8 +46,8 @@ function playMatch(matchChoice, computerChoice) {
 
     else if (matchChoice == "paper" && computerChoice === 0) {
         playerScore = playerScore + 1; 
-        console.log("You win! Paper beats rock");
-        results.textContent = 'Result: You win! Paper beats rock';
+        console.log("You min this round! Paper beats rock");
+        results.textContent = 'Result: You min this round! Paper beats rock';
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
@@ -67,8 +67,8 @@ function playMatch(matchChoice, computerChoice) {
 
     else if (matchChoice == "paper" && computerChoice === 2) {
         computerScore = computerScore + 1;
-        console.log("You lose! scissors beats paper");
-        results.textContent = 'Result: You lose! scissors beats paper';
+        console.log("You lose this round! scissors beats paper");
+        results.textContent = 'Result: You lose this round! scissors beats paper';
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
@@ -78,8 +78,8 @@ function playMatch(matchChoice, computerChoice) {
 
     else if (matchChoice == "scissors" && computerChoice === 0) {
         computerScore = computerScore + 1; 
-        console.log("You lose! Rock beats scissors");
-        results.textContent = 'Result: You lose! Rock beats scissors';
+        console.log("You lose this round! Rock beats scissors");
+        results.textContent = 'Result: You lose this round! Rock beats scissors';
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
@@ -89,8 +89,8 @@ function playMatch(matchChoice, computerChoice) {
 
     else if (matchChoice == "scissors" && computerChoice === 1) {
         playerScore = playerScore + 1; 
-        console.log("You win! Scissors beats paper");
-        results.textContent = 'Result: You win! Scissors beats paper';
+        console.log("You min this round! Scissors beats paper");
+        results.textContent = 'Result: You min this round! Scissors beats paper';
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
