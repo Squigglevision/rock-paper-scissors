@@ -1,56 +1,55 @@
 function playMatch(matchChoice, computerChoice) {
-    if (matchChoice == "rock" && computerChoice === 0) {
+    computerChoice = getComputerChoice();
+    if ((matchChoice == "rock" && computerChoice == 'scissors') ||
+        (matchChoice == "scissors" && computerChoice == 'paper') ||
+        (matchChoice == "paper" && computerChoice == 'rock')) {
+        playerScore += 1;
         showScore();
-        results.textContent = 'You both picked Rock - it\'s a draw!';
-    }
-    else if (matchChoice == "rock" && computerChoice === 1) {
-        computerScore = computerScore + 1;
         declareWinner();
-        showScore();
-        results.textContent = 'You lose this round! Paper beats Rock';
+        results.textContent = 'You win this round! ' + matchChoice + ' beats '
+                                + computerChoice;
     }
-    else if (matchChoice == "rock" && computerChoice === 2) {
-        playerScore = playerScore + 1;
-        declareWinner();
-        showScore();
-        results.textContent = 'You win this round! Rock beats scissors';
-    }
-    else if (matchChoice == "paper" && computerChoice === 0) {
-        playerScore = playerScore + 1; 
-        declareWinner();
-        showScore();
-        results.textContent = 'You min this round! Paper beats rock';
-    }
-    else if (matchChoice == "paper" && computerChoice === 1) {
-        showScore();
-        results.textContent = 'You both picked paper - it\'s a draw!';
-    }
-    else if (matchChoice == "paper" && computerChoice === 2) {
-        computerScore = computerScore + 1;
-        declareWinner();
-        showScore();
-        results.textContent = 'You lose this round! scissors beats paper';
-    }
-    else if (matchChoice == "scissors" && computerChoice === 0) {
-        computerScore = computerScore + 1; 
-        declareWinner();
-        showScore();
-        results.textContent = 'You lose this round! Rock beats scissors';
-    }
-    else if (matchChoice == "scissors" && computerChoice === 1) {
-        playerScore = playerScore + 1; 
-        declareWinner();
-        showScore();
-        results.textContent = 'You min this round! Scissors beats paper';
-    }
-    else if (matchChoice == "scissors" && computerChoice === 2) {
-        showScore();
-        results.textContent = 'You both picked scissors - it\'s a draw!';
+    else if (matchChoice == computerChoice) {
+        results.textContent = 'It\'s a tie. You both chose ' + matchChoice;
     }
     else {
+        computerScore += 1;
         showScore();
-        results.textContent = 'Hm... Something went wrong.';
+        declareWinner();
+        results.textContent = 'You lose! ' + computerChoice + ' beats '
+                                + matchChoice;
     }
+}
+
+function addEventListeners(){
+    areaListener = new AbortController(); // See orginal declaration for info
+    rock.addEventListener('click', function (e) {
+        rock.classList.add('btnClicked'); 
+        paper.classList.remove('btnClicked');
+        scissors.classList.remove('btnClicked');
+        matchChoice = "rock";
+        playMatch(matchChoice, computerChoice)
+        },
+        { signal: areaListener.signal }
+    );
+    paper.addEventListener('click', function(e) {
+        paper.classList.add('btnClicked');
+        rock.classList.remove('btnClicked'); 
+        scissors.classList.remove('btnClicked');
+        matchChoice = "paper";
+        playMatch(matchChoice, computerChoice)
+        },
+        { signal: areaListener.signal }
+    );
+    scissors.addEventListener('click', function(e) {
+        scissors.classList.add('btnClicked'); 
+        paper.classList.remove('btnClicked');
+        rock.classList.remove('btnClicked'); 
+        matchChoice = "scissors";
+        playMatch(matchChoice, computerChoice)
+        },
+        { signal: areaListener.signal }
+    );
 }
 
 function declareWinner() {
@@ -67,42 +66,6 @@ function declareWinner() {
     }   
 }
 
-function addEventListeners(){
-    areaListener = new AbortController(); // See orginal declaration for info
-    rock.addEventListener('click', function (e) {
-        rock.classList.add('btnClicked'); 
-        paper.classList.remove('btnClicked');
-        scissors.classList.remove('btnClicked');
-        let computerChoice = getComputerChoice(3);
-        matchChoice = "rock";
-        playMatch(matchChoice, computerChoice)
-        },
-        { signal: areaListener.signal }
-    );
-    paper.addEventListener('click', function(e) {
-        paper.classList.add('btnClicked');
-        rock.classList.remove('btnClicked'); 
-        scissors.classList.remove('btnClicked');
-
-        let computerChoice = getComputerChoice(3);
-        matchChoice = "paper";
-        playMatch(matchChoice, computerChoice)
-        },
-        { signal: areaListener.signal }
-    );
-    scissors.addEventListener('click', function(e) {
-        scissors.classList.add('btnClicked'); 
-        paper.classList.remove('btnClicked');
-        rock.classList.remove('btnClicked'); 
-
-        let computerChoice = getComputerChoice(3);
-        matchChoice = "scissors";
-        playMatch(matchChoice, computerChoice)
-        },
-        { signal: areaListener.signal }
-    );
-}
-
 function makePlayAgainButton() {
     const playAgainButton = document.createElement('button');
     playAgainButton.classList.add('playAgain'); 
@@ -113,6 +76,17 @@ function makePlayAgainButton() {
         showScore();
         winner.removeChild(playAgainButton);
     });
+}
+
+function getComputerChoice() {
+    const choice = Math.floor(Math.random() * 1000);
+    if (choice % 3 === 0) {
+        return 'rock';
+    }
+    if (choice % 3 === 1) {
+        return 'paper';
+    }
+    return 'scissors';
 }
 
 function playAgain() {
@@ -132,12 +106,9 @@ function showScore() {
     Computer: ${computerScore}`;
 }
 
-function getComputerChoice(max) {
-    return Math.floor(Math.random() * max);
-}
-
 let playerScore = 0;
 let computerScore = 0;
+let computerChoice = getComputerChoice();
 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
