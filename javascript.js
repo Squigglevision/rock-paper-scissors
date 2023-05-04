@@ -27,6 +27,7 @@ function playMatch(matchChoice, computerChoice) {
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
+        declareWinner();
 
 
     }
@@ -38,7 +39,7 @@ function playMatch(matchChoice, computerChoice) {
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
-
+        declareWinner();
 
     }
 
@@ -50,6 +51,7 @@ function playMatch(matchChoice, computerChoice) {
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
+        declareWinner();
 
     }
 
@@ -70,7 +72,7 @@ function playMatch(matchChoice, computerChoice) {
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
-
+        declareWinner();
 
     }
 
@@ -81,7 +83,7 @@ function playMatch(matchChoice, computerChoice) {
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
-
+        declareWinner();
 
     }
 
@@ -92,7 +94,7 @@ function playMatch(matchChoice, computerChoice) {
         score.textContent = 
             `Score | Player: ${playerScore} 
             Computer: ${computerScore}`;
-
+        declareWinner();
 
     }
 
@@ -115,6 +117,24 @@ function playMatch(matchChoice, computerChoice) {
 
     }
 
+}
+
+function declareWinner() {
+    if (playerScore === 5 && computerScore < 5){
+
+        console.log("Congratulations! You beat the computer!");
+        winner.textContent = `Congratulations! You beat the computer!`;
+
+    }
+
+    else if (computerScore === 5 && playerScore <5) {
+        console.log("You've been bested by the computer!" 
+                + " Better luck next time...")
+
+    winner.textContent = "You've been bested by the computer!" 
+    + " Better luck next time...";
+
+    }
 }
 
 
@@ -150,26 +170,9 @@ const score = document.querySelector('#score');
 const winner = document.querySelector('#winner');
 
 
-if (playerScore > computerScore){
 
-        console.log("Congratulations! You beat the computer!");
-        winner.textContent = `Congratulations! You beat the computer!`;
 
-    }
 
-    else if (computerScore > playerScore) {
-        console.log("You've been bested by the computer!" 
-                + " Better luck next time...")
-
-    winner.textContent = "You've been bested by the computer!" 
-    + " Better luck next time...";
-
-    }
-
-    else {
-
-        console.log("You drew with the computer! Will you win next time?")
-}
 
 
 
